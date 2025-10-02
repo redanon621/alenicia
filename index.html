@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            Alenicia's Home
+        </title>
+
+        <link href="files/headeropacity.css" rel="stylesheet" type="text/css" media="all">
+    </head>
+
+    <body>
+        <div class="wrapper">
+			<!-- Links Go Here -->
+			<div class="links">
+				<a href="#home">Home</a>
+				<a href="#gallery">Gallery</a>
+				<a href="#information">Information</a>
+				<a href="#links">Links</a>
+			</div>
+
+            <!-- Hero Content Goes Here -->
+            <div class="hero content"  id="home">
+                <h1>
+					Alenicia
+				</h1>
+            </div>
+
+
+            <!-- Main Content Goes Here -->
+            <div class="content">
+                <p>This is some text that might as well look like something you'd see from Lorem Ipsum.</p>
+
+                <p>This is another set of text that should hopefully fill in what you'd expect from Lorem Ipsum.</p>
+
+                <p>Oh, here is a sample for <strong>bold text</strong> and <em>italics</em>.</p>
+
+                <br/><br/><br/>
+
+                <p>Oh hi, here's more text.</p>
+            </div>
+
+			<div class="gallery content" id="gallery">
+				<h2>Gallery</h2>
+			</div>
+			<div class="information content" id="information">
+				<h2>Information</h2>
+			</div>
+			<div class="links content" id="links">
+				<h2>Links</h2>
+			</div>
+
+            <!-- Footer Content Goes Here -->
+            <div class="footer">
+                Alenicia &copy; 2025
+            </div>
+
+			<div class="avatar" ></div>
+        </div>
+
+
+
+		<script>
+			const observer = new IntersectionObserver((entries, observer) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target); // Optional: fade in only once
+						}
+					});
+				});
+
+			document.querySelectorAll('.content').forEach(el => {
+				observer.observe(el);
+			});		
+
+
+
+			const sections = document.querySelectorAll('.content[id]');
+			const navLinks = document.querySelectorAll('.links a');
+
+			const navObserver = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+				const id = entry.target.id;
+				const navLink = document.querySelector(`.links a[href="#${id}"]`);
+				if (entry.isIntersecting) {
+					navLinks.forEach(link => link.classList.remove('active'));
+					if (navLink) navLink.classList.add('active');
+				}
+				});
+			}, {
+				threshold: 0.4
+			});
+
+			sections.forEach(section => navObserver.observe(section));
+		</script>
+    </body>
+
+</html>
