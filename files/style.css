@@ -1,44 +1,28 @@
-html {
+html, body {
   scroll-behavior: smooth;
+  background: url("2025-10-02-AleniciaWeb-Background-Ha.jpg") no-repeat fixed center;
+  background-size: 120%;
+  background-color: #111;
+
 }
 
 body {
-  background: #240a35;
   font-family: "Candara", "Open Sans", sans-serif;
-  font-size:16px;
+  font-size: 16px;
   color: white;
   margin: 0;
+  background: transparent;
   }
-  
-a {
-    color: #0783b9;
-  }
-  
+ 
 /*Everything in the main box goes in this*/
 .wrapper {
   width: 750px;
-  border: 3px solid black;
   margin: 0 auto; 
   top: 0px;
   }
   
-
-
-
- /*If you want to use a smaller title or normal text, add .header p or .header h4 or whatever to the list*/
-/* .header h2, .header h3, .header h1 {
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  border: 0px solid green;
-  margin: 18% auto; /*approx centered
-  opacity: 0.999999;
-} */
-
 .links {
-  background: black;
   padding: 10px;
-  border-bottom: 3px solid black;
   position: sticky;
   top: 0;
   z-index: 99;
@@ -47,7 +31,6 @@ a {
   }
   
 .links a {
-  color: #dd8fdd;
   padding: 3px;
   margin-left: 5px;
   margin-right:5px;
@@ -75,7 +58,7 @@ a {
     background-size: contain;
   }
 
-  #gallery {
+  #art {
     display: block;
     width: 100px;
     height: 70px;  
@@ -99,69 +82,63 @@ a {
     background-size: contain;
   }
 
-
-.main {
-  padding: 15px;
-  margin: 0 auto;
-  background: #4c354c;
-  }
-  
-/*Prevent overflow of large images in main text areas.*/
-.main img {
-  max-width: 100%;
-  height: auto;
-  }
-
 .content {
   padding: 15px;
-  margin: 50px auto;
-  background: #3b2a3b;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-  height: 500px; /*Temporary, for testing*/
+  margin: 10px 75px 20px;
+  background: #2a3b31;
+  border: 15px solid #392e16;
+  height: 300px; /*Temporary, for testing*/
   }
 
-.header {
-  height: 300px;
-  border-bottom: 3px solid black;
-  margin: 0 auto;
-  overflow: hidden;
-  background-color: pink;
-  /* background: linear-gradient(rgba(255, 213, 149, 0.3),rgba(12, 0, 44, 0.5)), url("header.jpg"); */
-  background-size:cover;
-  background-position: center;
+  .content-wrapper {
+    position: relative;
   }
 
-  .gallery {
-	height: 1000px;
-
+  .sideboard {
+    width: 100px;
+    height: 100px;
+    background: url("AleniciaWeb-BoardSmallClear-Half180px.png") no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    left: -50px;
+    top: 200px;
   }
 
-  .about {
-	height: 800px;	
+  
+  .avatar {
+    width: 200px;
+    height: 200px;
+    background: url("AleniciaWebAlenicia-Half.png") no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    bottom: 130px;
+    right: 20px;
+  }  
 
-  }
+  .table {
+    width: 100%;
+    height: 200px;
+    background: url("AleniciaWebBarTable-Half.png") no-repeat center center;
+    background-size: contain;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+  }  
+
   
 .footer {
   background: black;
-  padding: 20px;
-  padding-top:5px;
-  padding-bottom:5px;
-  border-top: 3px solid black;
-  font-size:14px;
+  padding: 5px 20px;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
   }
-  
 
-  .avatar {
-	width: 100px;
-	height: 100px;
-	background: url("AleniciaWebAlenicia-Half.png") no-repeat center center;
-	position: fixed;
-	background-size: contain;
-	bottom: 0;
-	right: 10px;
-	z-index: 100;
-  }  
+
+
 /*For narrow screens*/
 @media(max-width: 790px) {
   .wrapper {
@@ -184,16 +161,3 @@ a {
     }
   }
 
-
-  /* animation */
-
-
-  .content {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-.content.visible {
-  opacity: 1;
-  transform: translateY(0);
-}

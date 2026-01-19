@@ -17,91 +17,79 @@
 			<!-- Links Go Here -->
 			<div class="links">
 				<div class="lamp"></div>
-				<a id="home" href="#home"></a>
+				<a id="home" href="#home" data-page="home"></a>
 				<div class="lamp"></div>
-				<a id="about" href="#about"></a>
+				<a id="about" href="#about" data-page="about"></a>
 				<div class="lamp"></div>
-				<a id="gallery" href="#gallery"></a>
+				<a id="art" href="#art" data-page="art"></a>
 				<div class="lamp"></div>
-				<a id="links" href="#links"></a>
+				<a id="links" href="#links" data-page="links"></a>
 				<div class="lamp"></div>
 			</div>
 
             <!-- Hero Content Goes Here -->
-            <div class="hero content" >
-                <h1>
-					Alenicia
-				</h1>
-            </div>
 
-
-            <!-- Main Content Goes Here -->
-            <div class="content">
-                <p>This is some text that might as well look like something you'd see from Lorem Ipsum.</p>
-
-                <p>This is another set of text that should hopefully fill in what you'd expect from Lorem Ipsum.</p>
-
-                <p>Oh, here is a sample for <strong>bold text</strong> and <em>italics</em>.</p>
-
-                <br/><br/><br/>
-
-                <p>Oh hi, here's more text.</p>
-            </div>
-
-			<div class="gallery content" id="gallery">
-				<h2>Gallery</h2>
+			<div class="content-wrapper">
+				<div class="hero content" >
+					<div id="app"></div>
+				</div>
+				<div class="sideboard"></div>
+				<div class="avatar" ></div>
+				<div class="table"></div>
 			</div>
-			<div class="about content" id="about">
-				<h2>About</h2>
-			</div>
-			<div class="links content" id="links">
-				<h2>Links</h2>
-			</div>
+
 
             <!-- Footer Content Goes Here -->
             <div class="footer">
                 Alenicia &copy; 2025
             </div>
 
-			<div class="avatar" ></div>
         </div>
 
 
 
 		<script>
-			const observer = new IntersectionObserver((entries, observer) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('visible');
-						observer.unobserve(entry.target); // Optional: fade in only once
-						}
-					});
-				});
 
-			document.querySelectorAll('.content').forEach(el => {
-				observer.observe(el);
-			});		
+			const app = document.getElementById("app");
 
+			/* page content */
+			const pages = {
+			home: `
+				<h1>Home</h1>
+				<p>Welcome.</p>
+			`,
+			about: `
+				<h1>About</h1>
+				<p>About this site.</p>
+			`,
+			links: `
+				<h1>Links</h1>
+				<p>hello@example.com</p>
+			`,
+			art: `
+				<h1>Art</h1>
+				<p>heres the art</p>
+			`
+			};
 
+			/* render */
+			function render(page) {
+			app.innerHTML = pages[page] || "<h1>404</h1>";
+			}
 
-			const sections = document.querySelectorAll('.content[id]');
-			const navLinks = document.querySelectorAll('.links a');
+			/* nav clicks */
+			document.addEventListener("click", (e) => {
+			const link = e.target.closest("[data-page]");
+			if (!link) return;
 
-			const navObserver = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-				const id = entry.target.id;
-				const navLink = document.querySelector(`.links a[href="#${id}"]`);
-				if (entry.isIntersecting) {
-					navLinks.forEach(link => link.classList.remove('active'));
-					if (navLink) navLink.classList.add('active');
-				}
-				});
-			}, {
-				threshold: 0.4
+			e.preventDefault();
+			render(link.dataset.page);
 			});
 
-			sections.forEach(section => navObserver.observe(section));
+			/* initial load */
+			render("home");
+					
 		</script>
-    </body>
+	</body>
 
 </html>
