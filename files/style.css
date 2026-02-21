@@ -1,9 +1,9 @@
 html, body {
   scroll-behavior: smooth;
   background: url("2025-10-02-AleniciaWeb-Background-Ha.jpg") no-repeat fixed center;
-  background-size: 120%;
+  background-size: cover;
   background-color: #111;
-
+  height: 100%
 }
 
 body {
@@ -17,8 +17,11 @@ body {
 /*Everything in the main box goes in this*/
 .wrapper {
   width: 750px;
+  height: calc(100% - 25px);
   margin: 0 auto; 
   top: 0px;
+  display: flex;
+  flex-direction: column;
   }
   
 .links {
@@ -43,90 +46,90 @@ body {
 	color: #f9d8f9
   }
 
-  .lamp {
-    width: 100px;
-    height: 100px;  
-    background: url("AleniciaWebLamp-Half3.png") no-repeat center center;
-    background-size: contain;
-  }
+.lamp {
+  width: 100px;
+  height: 100px;  
+  background: url("AleniciaWebLamp-Half3.png") no-repeat center center;
+  background-size: contain;
+}
 
-  #home {
-    display: block;
-    width: 100px;
-    height: 70px;  
-    background: url("AleniciaWebBanner-Home-Half.png") no-repeat center center;
-    background-size: contain;
-  }
+#home {
+  display: block;
+  width: 100px;
+  height: 70px;  
+  background: url("AleniciaWebBanner-Home-Half.png") no-repeat center center;
+  background-size: contain;
+}
 
-  #art {
-    display: block;
-    width: 100px;
-    height: 70px;  
-    background: url("AleniciaWebBanner-Art-Half.png") no-repeat center center;
-    background-size: contain;
-  }
+#art {
+  display: block;
+  width: 100px;
+  height: 70px;  
+  background: url("AleniciaWebBanner-Art-Half.png") no-repeat center center;
+  background-size: contain;
+}
 
-  #about {
-    display: block;
-    width: 100px;
-    height: 70px;  
-    background: url("AleniciaWebBanner-About-Half.png") no-repeat center center;
-    background-size: contain;
-  }
+#about {
+  display: block;
+  width: 100px;
+  height: 70px;  
+  background: url("AleniciaWebBanner-About-Half.png") no-repeat center center;
+  background-size: contain;
+}
 
-  #links {
-    display: block;
-    width: 100px;
-    height: 70px;  
-    background: url("AleniciaWebBanner-Home-Half.png") no-repeat center center;
-    background-size: contain;
-  }
+#links {
+  display: block;
+  width: 100px;
+  height: 70px;  
+  background: url("AleniciaWebBanner-Home-Half.png") no-repeat center center;
+  background-size: contain;
+}
 
-.content {
+.content-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-content {
   padding: 15px;
   margin: 10px 75px 20px;
   background: #2a3b31;
-  border: 15px solid #392e16;
-  height: 300px; /*Temporary, for testing*/
+  border: 15px solid #715c2d;
+  /* background: url("AleniciaWeb-BoardSmallClear-Half180px.png") no-repeat center center; */
+
+  height: 300px; /* temp for testing */
   }
 
-  .content-wrapper {
-    position: relative;
-  }
+.avatable {
+  position: relative;
+  min-height: 200px;
+}
 
-  .sideboard {
-    width: 100px;
-    height: 100px;
-    background: url("AleniciaWeb-BoardSmallClear-Half180px.png") no-repeat center center;
-    background-size: contain;
-    position: absolute;
-    left: -50px;
-    top: 200px;
-  }
 
-  
-  .avatar {
-    width: 200px;
-    height: 200px;
-    background: url("AleniciaWebAlenicia-Half.png") no-repeat center center;
-    background-size: contain;
-    position: absolute;
-    bottom: 130px;
-    right: 20px;
-  }  
+.avatar {
+  width: 200px;
+  height: 200px;
+  background: url("AleniciaWebAlenicia-Half.png") no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  bottom: 130px;
+  right: 20px;
+}  
 
-  .table {
-    width: 100%;
-    height: 200px;
-    background: url("AleniciaWebBarTable-Half.png") no-repeat center center;
-    background-size: contain;
-    position: relative;
-    bottom: 0;
-    right: 0;
-    z-index: 100;
-  }  
+.table {
+  width: 100%;
+  height: 200px;
+  background: url("AleniciaWebBarTable-Half.png") no-repeat bottom center;
+  background-size: contain;
+  position: absolute;
+  bottom: 0px;
+  z-index: 100;
+}  
 
-  
+
 .footer {
   background: black;
   padding: 5px 20px;
@@ -135,22 +138,34 @@ body {
   bottom: 0px;
   left: 0;
   width: 100%;
+  height: 20px;
   }
 
 
 
 /*For narrow screens*/
-@media(max-width: 790px) {
+@media(max-width: 430px) {
   .wrapper {
     width: 95%;
     }
+
+  .lamp {
+    width: 0;
+  }
+  
+  .content { 
+    margin: 10px 10px 20px;
+  }
+  .avatar {
+    bottom: 50px;
+  }
   .header h1, .header h2, .header h3 { /*Vertical centering gets wonky when the box is variable width*/
     margin: 20% 5% auto;
     }
   }  
 
 /*Mobile compatibility*/
-@media(orientation: portrait) {
+/* @media(orientation: portrait) {
   .wrapper {
     width: 95%;}
   .header {
@@ -159,5 +174,5 @@ body {
   .header h1, .header h2, .header h3 {
     margin: 20% 3% auto;
     }
-  }
+  } */
 
